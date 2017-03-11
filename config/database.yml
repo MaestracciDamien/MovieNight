@@ -50,6 +50,7 @@ test:
 #
 production:
   adapter: postgresql
+  host: localhost
   timeout: 5000
   pool: 5
   database : movie_night_prod
