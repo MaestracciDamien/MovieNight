@@ -76,6 +76,7 @@ GEM
     nio4r (2.0.0)
     nokogiri (1.7.0.1-x86-mingw32)
       mini_portile2 (~> 2.1.0)
+    pg (0.20.0-x86-mingw32)
     puma (3.8.1)
     rack (2.0.1)
     rack-test (0.6.3)
@@ -148,6 +149,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   mysql2 (>= 0.3.18, < 0.5)
+  pg
   puma (~> 3.0)
   rails (~> 5.0.1)
   sass-rails (~> 5.0)
