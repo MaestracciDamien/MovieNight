@@ -50,7 +50,7 @@ test:
 #
 production:
   adapter: postgresql
-  host: localhost
+  url: <%= ENV['DATABASE_URL'] %>
   timeout: 5000
   pool: 5
   database : movie_night_prod
