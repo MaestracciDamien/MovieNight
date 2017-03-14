@@ -1,33 +1,85 @@
 <header>
-  <!--<div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-4"><h1>Movie Night</h1></div>
-    <div class="col-md-4"></div>
-  </div>-->
+  <!--
   <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
+   <!-- <div class="container-fluid">
 
-    <ul class="nav navbar-nav navbar-left">
-        <li href="#" class="navbar-brand">
-          <%= image_tag("night-vision-camera.png", :alt => "Movie Night", size: "40") %>
+      <ul class="nav">
+        <li href="#" class="navbar-brand">-->
+         <!-- <%= image_tag("night-vision-camera.png", :alt => "Movie Night", size: "40") %>
         </li>
-      <li class="nav nav-center navbar-inner"><%= link_to "Movie Night", '#' %></li>
-    </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="nav navbar-right"><%= link_to "Help",   help_path %></li>
+      </ul>
+      <ul>
+        <li class="nav navbar-header"><%= link_to "Movie Night", '#' %></li>
+      </ul>
+
+      <ul class="nav navbar-nav pull-right">
+        <li class="nav navbar-right"><%= link_to "Help", '#' %></li>
         <% if logged_in? %>
+            <h1> BANANA SPLIT</h1>
             <li><%= link_to "Users", '#' %></li>
             <li><%= link_to "Profile", current_user %></li>
             <li><%= link_to "Settings", '#' %></li>
             <li><%= link_to "Log out", logout_path, method: "delete" %></li>
         <% else %>
-            <li class="nav navbar-right"><%= link_to "Sign up", signup_path %></li>
-            <li class="nav navbar-right"><%= link_to "Log in", login_path %></li>
+            <h1> PIZZA SPLIT</h1>
+            <li class="nav navbar-right"><%= link_to "Sign up", 'signup_path' %></li>
+            <li class="nav navbar-right"><%= link_to "Log in", 'login_path' %></li>
         <% end %>
 
 
       </ul>
-    </div>
-  </nav>
+    </div>-->
+    <!--<div class="row">
+      <div class="col-md-1"><%= image_tag("night-vision-camera.png", :alt => "Movie Night", size: "40") %></div>
+      <div class="col-md-1"></div>
+      <div class="col-md-1"></div>
+      <div class="col-md-1"></div>
+      <div class="col-md-1"><%= link_to "Movie Night", '#' %></div>
+      <div class="col-md-1">/div>
+      <div class="col-md-1"><%= link_to "Help", '#' %></div>
+      <% if logged_in? %>
+      <div class="col-md-1"><%= link_to "Users", '#' %></div>
+      <div class="col-md-1"><%= link_to "Profile", current_user %></div>
+      <div class="col-md-1"><%= link_to "Settings", '#' %></div>
+      <div class="col-md-1"><%= link_to "Log out", logout_path, method: "delete" %></div>
+      <% else %>
+      <div class="col-md-1"><%= link_to "Sign up", 'signup_path' %></div>
+          <div class="col-md-1"><%= link_to "Log in", 'login_path' %></div>
+          <%end%>
+     </div>
+  </nav>-->
+
+
+  <!---------------------------- -->
+    <!-- navbar
+      http://bootsnipp.com/snippets/featured/navbar-fixed-on-scrolling-with-transition
+    -->
+  <nav id="header" class="navbar navbar-fixed-top">
+    <div id="header-container" class="container navbar-container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a id="brand" class="navbar-brand" href="#">Movie Night</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="nav navbar-right"><%= link_to "Help", '#' %></li>
+          <% if logged_in? %>
+              <li><%= link_to "Users", '#' %></li>
+              <li><%= link_to "Profile", current_user %></li>
+              <li><%= link_to "Settings", '#' %></li>
+              <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+          <% else %>
+              <li class="nav navbar-right"><%= link_to "Sign up", 'signup_path' %></li>
+              <li class="nav navbar-right"><%= link_to "Log in", 'login_path' %></li>
+          <% end %>
+        </ul>
+      </div><!-- /.nav-collapse -->
+    </div><!-- /.container -->
+  </nav><!-- /.navbar -->
 </header>
 
