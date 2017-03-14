@@ -1,4 +1,4 @@
-<header>
+<header xmlns="http://www.w3.org/1999/html">
   <!--
   <nav class="navbar navbar-inverse">
    <!-- <div class="container-fluid">
@@ -13,10 +13,10 @@
       </ul>
 
       <ul class="nav navbar-nav pull-right">
-        <li class="nav navbar-right"><%= link_to "Help", '#' %></li>
+        <li class="nav navbar-right"><%= link_to "Help", '/help' %></li>
         <% if logged_in? %>
             <h1> BANANA SPLIT</h1>
-            <li><%= link_to "Users", '#' %></li>
+            <li><%= link_to "Users", '/users' %></li>
             <li><%= link_to "Profile", current_user %></li>
             <li><%= link_to "Settings", '#' %></li>
             <li><%= link_to "Log out", logout_path, method: "delete" %></li>
@@ -54,6 +54,89 @@
     <!-- navbar
       http://bootsnipp.com/snippets/featured/navbar-fixed-on-scrolling-with-transition
     -->
+
+  <!-- JS -->
+<script type="text/javascript">
+  $(document).ready(function(){
+
+  /**
+  * This object controls the nav bar. Implement the add and remove
+  * action over the elements of the nav bar that we want to change.
+  *
+  * @type {{flagAdd: boolean, elements: string[], add: Function, remove: Function}}
+  */
+  var myNavBar = {
+
+  flagAdd: true,
+
+  elements: [],
+
+  init: function (elements) {
+  this.elements = elements;
+  },
+
+  add : function() {
+  if(this.flagAdd) {
+  for(var i=0; i < this.elements.length; i++) {
+  document.getElementById(this.elements[i]).className += " fixed-theme";
+  }
+  this.flagAdd = false;
+  }
+  },
+
+  remove: function() {
+  for(var i=0; i < this.elements.length; i++) {
+  document.getElementById(this.elements[i]).className =
+  document.getElementById(this.elements[i]).className.replace( /(?:^|\s)fixed-theme(?!\S)/g , '' );
+  }
+  this.flagAdd = true;
+  }
+
+  };
+
+  /**
+  * Init the object. Pass the object the array of elements
+  * that we want to change when the scroll goes down
+  */
+  myNavBar.init(  [
+  "header",
+  "header-container",
+  "brand"
+  ]);
+
+  /**
+  * Function that manage the direction
+  * of the scroll
+  */
+  function offSetManager(){
+
+  var yOffset = 0;
+  var currYOffSet = window.pageYOffset;
+
+  if(yOffset < currYOffSet) {
+  myNavBar.add();
+  }
+  else if(currYOffSet == yOffset){
+  myNavBar.remove();
+  }
+
+  }
+
+  /**
+  * bind to the document scroll detection
+  */
+  window.onscroll = function(e) {
+  offSetManager();
+  }
+
+  /**
+  * We have to do a first detectation of offset because the page
+  * could be load with scroll down set.
+  */
+  offSetManager();
+  });
+</script>
+  <!-- HTML -->
   <nav id="header" class="navbar navbar-fixed-top">
     <div id="header-container" class="container navbar-container">
       <div class="navbar-header">
@@ -63,15 +146,15 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a id="brand" class="navbar-brand" href="#">Movie Night</a>
+        <a id="brand" class="navbar-brand" href="/">Movie Night</a>
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li class="nav navbar-right"><%= link_to "Help", '#' %></li>
+          <li class="nav navbar-right"><%= link_to "Help",   '#' %></li>
           <% if logged_in? %>
-              <li><%= link_to "Users", '#' %></li>
+              <li><%= link_to "Users", '/users' %></li>
               <li><%= link_to "Profile", current_user %></li>
-              <li><%= link_to "Settings", '#' %></li>
+              <!--<li><%= link_to "Settings", '#' %></li>-->
               <li><%= link_to "Log out", logout_path, method: "delete" %></li>
           <% else %>
               <li class="nav navbar-right"><%= link_to "Sign up", 'signup_path' %></li>
